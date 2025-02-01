@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:31:57 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/01 10:27:11 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:48:20 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	close_handle(t_fractol *fractol)
 
 int key_handle(int	keysym, t_fractol *fractol)
 {
+	printf("fractol pointer in key_handle: %p\n", (void*)fractol);	
 	if (keysym == XK_Escape)
 		close_handle(fractol);
 	else if (keysym == XK_Left)
@@ -41,14 +42,21 @@ int key_handle(int	keysym, t_fractol *fractol)
 	return (0);
 }
 
-int	mouse_handle(int button, t_fractol *fractol)
+int	mouse_handle(int button, int x, int y, t_fractol *fractol)
 {
-	if (button == 5)
-		fractol->zoom *= 1.05;
-	else if (button == 4)
-		fractol->zoom *= 0.95;
-	fractol_render(fractol);
-	return (0);	
+	(void)x;
+	(void)y;
+	
+    if (button == 5)
+    {
+        fractol->zoom *= 1.0;
+    }
+    else if (button == 4)
+    {
+        fractol->zoom *= 0.95;
+    }
+    fractol_render(fractol);
+    return (0);	
 }
 
 int track_julia(int x, int y, t_fractol *fractol)

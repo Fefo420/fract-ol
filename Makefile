@@ -6,12 +6,12 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/25 11:29:09 by fileonar          #+#    #+#              #
-#    Updated: 2025/02/01 10:49:28 by fileonar         ###   ########.fr        #
+#    Updated: 2025/02/01 19:25:15 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 MLXFLAGS = -Lminilibx-linux -lmlx_Linux -lX11 -lXext -lm
 

@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 22:53:32 by fileonar          #+#    #+#             */
-/*   Updated: 2025/01/31 21:01:30 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:46:48 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,9 @@ int main(int argc, char	**argv)
 			fractol.julia_y = atodbl(argv[3]);
 		}
 		fractol_init(&fractol);
+		printf("fractol pointer in main after init: %p\n", (void*)&fractol);
 		fractol_render(&fractol);
 		mlx_loop(fractol.mlx_connection);
-
-
-
 	}
 	else
 	{
@@ -41,5 +39,5 @@ int main(int argc, char	**argv)
 		ft_putstr_fd("Usage: ./fractol julia [real] [imaginary]\n", 2);
 		return (EXIT_FAILURE);
 	}
-	
+
 }

@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:20:45 by fileonar          #+#    #+#             */
-/*   Updated: 2025/01/31 20:42:11 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:47:49 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 void	data_init(t_fractol *fractol)
 {
 	fractol->escape_value = 4;
-	fractol->iterations_definition = 42;
+	fractol->iterations_definition = 10;
 	fractol->shift_x = 0.0;
 	fractol->shift_y = 0.0;
 	fractol->zoom = 1.0;
+	fractol->julia_x = 0.0;
+    fractol->julia_y = 0.0;
 }
 
 void	events_init(t_fractol *fractol)
 {
+	printf("fractol pointer in events_init: %p\n", (void*)fractol);
 	mlx_hook(fractol->mlx_window, KeyPress, KeyPressMask, key_handle, fractol);
-	mlx_hook(fractol->mlx_window, ButtonPress, ButtonPressMask,
+		mlx_hook(fractol->mlx_window, ButtonPress, ButtonPressMask,
 			 mouse_handle, fractol);
 	mlx_hook(fractol->mlx_window, DestroyNotify, StructureNotifyMask,
 			 close_handle, fractol);
-	
-	mlx_hook(fractol->mlx_window, MotionNotify, PointerMotionMask,
+		mlx_hook(fractol->mlx_window, MotionNotify, PointerMotionMask,
 			 track_julia, fractol);
 }
 
@@ -64,4 +66,5 @@ void fractol_init(t_fractol *fractol)
 												&fractol->img.endian);
 	events_init(fractol);
 	data_init(fractol);
+    printf("fractol pointer in fractol_init: %p\n", (void*)fractol);
 }

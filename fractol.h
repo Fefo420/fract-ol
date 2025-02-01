@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 11:46:57 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/01 10:27:32 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:47:15 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ t_complex square_complex(t_complex z);
 
 	//events.c
 int		key_handle(int	keysym, t_fractol *fractol);
-int		mouse_handle(int button, t_fractol *fractol);
+int		mouse_handle(int button, int x, int y, t_fractol *fractol);
 int		close_handle(t_fractol *fractol);
 
 	//string_utils.c
