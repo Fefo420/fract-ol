@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:20:45 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/01 21:47:49 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/02 10:51:25 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	data_init(t_fractol *fractol)
 
 void	events_init(t_fractol *fractol)
 {
-	printf("fractol pointer in events_init: %p\n", (void*)fractol);
 	mlx_hook(fractol->mlx_window, KeyPress, KeyPressMask, key_handle, fractol);
 		mlx_hook(fractol->mlx_window, ButtonPress, ButtonPressMask,
 			 mouse_handle, fractol);
@@ -66,5 +65,4 @@ void fractol_init(t_fractol *fractol)
 												&fractol->img.endian);
 	events_init(fractol);
 	data_init(fractol);
-    printf("fractol pointer in fractol_init: %p\n", (void*)fractol);
 }
